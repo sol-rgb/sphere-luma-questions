@@ -86,12 +86,6 @@ body {
 .logo { display: inline-flex; }
 .logo img { display: block; }
 
-.tag {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--text-muted);
-}
 
 .wrap {
   flex: 1;
@@ -116,7 +110,6 @@ body {
   font-weight: 500;
   letter-spacing: 0.02em;
   color: var(--text-muted);
-  margin-bottom: 12px;
 }
 
 /* The site's dash mark: a thick bar and a thin line, drawn from the logo geometry. */
@@ -153,15 +146,6 @@ body {
   font-size: 15px;
   line-height: 1.5;
   color: var(--text-secondary);
-  max-width: 46ch;
-}
-
-.page-sub mark {
-  background: var(--color-mint);
-  color: var(--color-night);
-  font-weight: 500;
-  padding: 1px 6px;
-  border-radius: 3px;
 }
 
 /* The event site's signature dark card ("SW054000 · Software … Ground truth: verified"). */
