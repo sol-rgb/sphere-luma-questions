@@ -32,6 +32,8 @@
   --color-stone-60: #dfddcf;
   --color-midnight-40: #5e625e;
   --color-midnight-60: #414441;
+  --color-midnight-80: #2e312e;
+  --color-midnight-100: #1f231f;
   --color-white: #ffffff;
 
   --bg-page: var(--color-stone-20);
