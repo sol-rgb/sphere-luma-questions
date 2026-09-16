@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Table QR · Ground Truth</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/sphere_logo-night.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .qr-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; text-align: center; }
+    .qr-card { background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 16px; overflow: hidden; width: min(420px, 92vw); }
+    .qr-card .card-bar { height: 6px; background: var(--gradient-primary); }
+    .qr-box { padding: 32px 32px 16px; }
+    .qr-box svg { width: 100%; height: auto; display: block; }
+    .qr-title { font-family: var(--font-primary); font-weight: 300; font-size: 32px; letter-spacing: -0.018em; }
+    .qr-sub { font-size: 14px; color: var(--text-secondary); padding: 0 32px 32px; }
+    .qr-note { font-size: 13px; color: var(--text-muted); }
+    @media print {
+      .site-header, .qr-note { display: none; }
+      body { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html"><img src="assets/logo/sphere_logo-night.svg" width="96" height="36" alt="Sphere"></a>
+    <span class="tag">Vol. 1 · Table Talk</span>
+  </header>
+  <main class="qr-wrap">
+    <p class="qr-title">Scan for a question</p>
+    <div class="qr-card">
+      <div class="card-bar" aria-hidden="true"></div>
+      <div class="qr-box" id="qr" role="img" aria-label="QR code for the Table Talk site"></div>
+      <p class="qr-sub" id="url-label"></p>
+    </div>
+    <p class="qr-note">Print this page for the table tents. The code always points at this site's own address.</p>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <script>
+    var target = location.origin + "/";
+    var qr = qrcode(0, "M");
+    qr.addData(target);
+    qr.make();
+    document.getElementById("qr").innerHTML = qr.createSvgTag({ scalable: true, margin: 2 });
+    document.getElementById("url-label").textContent = target.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  </script>
+</body>
+</html>

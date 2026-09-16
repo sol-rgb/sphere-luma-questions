@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Table Talk · Ground Truth</title>
+  <meta name="description" content="Conversation cards for Ground Truth, a Sphere conference. Scan, draw a question, talk.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/sphere_logo-night.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="https://groundtruth.getsphere.com" aria-label="Ground Truth, a Sphere conference">
+      <img src="assets/logo/sphere_logo-night.svg" width="96" height="36" alt="Sphere">
+    </a>
+    <span class="tag">Vol. 1 · Table Talk</span>
+  </header>
+
+  <main class="wrap">
+    <p class="eyebrow">From the room</p>
+
+    <section class="card" id="card" aria-live="polite">
+      <div class="card-bar" aria-hidden="true"></div>
+      <div class="card-inner">
+        <p class="card-label">
+          <span>Question</span>
+          <span id="counter">– / –</span>
+        </p>
+        <h1 class="question" id="question">Shuffling the deck…</h1>
+      </div>
+    </section>
+
+    <button id="draw" class="btn" type="button">Draw another question</button>
+
+    <p class="hint">Asked by tonight's guests with their RSVPs. Pick one, go around the table.</p>
+
+    <p class="notice" id="placeholder-notice" hidden>
+      Sample deck for setup. The submitted questions land before doors open.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footnote">It shouldn't be your job to break the ice.<sup>*</sup></p>
+    <p class="footnote-sub"><sup>*</sup> That's ours.</p>
+  </footer>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

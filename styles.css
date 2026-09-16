@@ -1,0 +1,234 @@
+/* Ground Truth · Table Talk
+   Tokens inherited verbatim from groundtruth.getsphere.com (see DESIGN.md). */
+
+@font-face {
+  font-family: "Cambon";
+  src: url("assets/fonts/Cambon-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "CoFo Gothic";
+  src: url("assets/fonts/CoFoGothic-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "CoFo Gothic";
+  src: url("assets/fonts/CoFoGothic-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-night: #0d0e0d;
+  --color-volt: #99ff4b;
+  --color-mint: #dcf8da;
+  --color-stone-20: #f9f8f3;
+  --color-stone-40: #ecebe7;
+  --color-stone-60: #dfddcf;
+  --color-midnight-40: #5e625e;
+  --color-midnight-60: #414441;
+  --color-white: #ffffff;
+
+  --bg-page: var(--color-stone-20);
+  --surface: var(--color-white);
+  --text-primary: var(--color-night);
+  --text-secondary: var(--color-midnight-60);
+  --text-muted: var(--color-midnight-40);
+  --border-subtle: var(--color-stone-60);
+
+  --gradient-primary: linear-gradient(180deg, #6ae654 0%, #99ff4b 44%, #ddfbd3 77%, #48b45f 100%);
+
+  --font-primary: "Cambon", Georgia, "Times New Roman", serif;
+  --font-secondary: "CoFo Gothic", "Helvetica Neue", Arial, sans-serif;
+
+  --radius-md: 16px;
+  --radius-pill: 999px;
+
+  --dur-base: 320ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { height: 100%; }
+
+body {
+  min-height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  padding: 20px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding-top: 4px;
+}
+
+.logo { display: inline-flex; }
+.logo img { display: block; }
+
+.tag {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 0 32px;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.card-bar {
+  height: 6px;
+  background: var(--gradient-primary);
+}
+
+.card-inner {
+  padding: 24px 24px 32px;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.question {
+  font-family: var(--font-primary);
+  font-weight: 300;
+  font-size: clamp(28px, 7vw, 44px);
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+  color: var(--text-primary);
+  margin-top: auto;
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+}
+
+.question.is-leaving {
+  opacity: 0;
+  transform: translateY(12px);
+  transition-duration: 140ms;
+}
+
+.btn {
+  margin-top: 24px;
+  width: 100%;
+  padding: 18px 32px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-night);
+  color: var(--color-stone-20);
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 180ms var(--ease-out), background-color 180ms var(--ease-out);
+}
+
+.btn:active { transform: scale(0.98); }
+
+@media (hover: hover) {
+  .btn:hover { background: #2e312e; }
+}
+
+.hint {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.notice {
+  margin-top: 24px;
+  padding: 10px 16px;
+  border: 1px dashed var(--color-stone-60);
+  border-radius: 8px;
+  background: var(--color-stone-40);
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.site-footer {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+.footnote {
+  font-family: var(--font-primary);
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: -0.018em;
+  color: var(--text-secondary);
+}
+
+.footnote-sub {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .question, .btn { transition: none; }
+}
+
+@media (min-width: 640px) {
+  .card-inner { padding: 32px 40px 48px; min-height: 320px; }
+  .btn { width: auto; align-self: center; padding: 18px 48px; }
+}
