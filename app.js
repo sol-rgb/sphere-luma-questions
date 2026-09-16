@@ -27,9 +27,17 @@
 
   function pad(n) { return (n < 10 ? "0" : "") + n; }
 
+  var wrapEl = document.getElementById("qwrap");
+
   function render() {
-    questionEl.textContent = deck[index];
+    var text = deck[index];
+    questionEl.classList.remove("q-md", "q-sm", "q-xs");
+    if (text.length > 300) questionEl.classList.add("q-xs");
+    else if (text.length > 180) questionEl.classList.add("q-sm");
+    else if (text.length > 90) questionEl.classList.add("q-md");
+    questionEl.textContent = text;
     counterEl.textContent = pad(index + 1) + " / " + pad(deck.length);
+    if (wrapEl) wrapEl.scrollTop = 0;
   }
 
   function next() {

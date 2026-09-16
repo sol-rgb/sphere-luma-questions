@@ -125,8 +125,8 @@ body {
 }
 
 .card-inner {
-  padding: 24px 24px 32px;
-  min-height: 260px;
+  padding: 24px 24px 28px;
+  height: clamp(300px, 48dvh, 440px);
   display: flex;
   flex-direction: column;
 }
@@ -142,6 +142,17 @@ body {
   margin-bottom: 24px;
 }
 
+.question-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-stone-60) transparent;
+}
+
 .question {
   font-family: var(--font-primary);
   font-weight: 300;
@@ -152,6 +163,11 @@ body {
   margin-top: auto;
   transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
 }
+
+/* Type steps down with question length so most cards fill the same fixed frame. */
+.question.q-md { font-size: clamp(24px, 5.5vw, 36px); }
+.question.q-sm { font-size: clamp(20px, 4.5vw, 28px); line-height: 1.3; }
+.question.q-xs { font-size: clamp(17px, 4vw, 22px); line-height: 1.4; }
 
 .question.is-leaving {
   opacity: 0;
@@ -229,6 +245,6 @@ body {
 }
 
 @media (min-width: 640px) {
-  .card-inner { padding: 32px 40px 48px; min-height: 320px; }
+  .card-inner { padding: 32px 40px 40px; height: clamp(320px, 48vh, 460px); }
   .btn { width: auto; align-self: center; padding: 18px 48px; }
 }
