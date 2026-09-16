@@ -25,14 +25,23 @@
   var busy = false;
 
   var wrapEl = document.getElementById("qwrap");
+  var SIZE_STEPS = ["", "q-md", "q-sm", "q-xs"];
+
+  function applyStep(i) {
+    questionEl.classList.remove("q-md", "q-sm", "q-xs");
+    if (SIZE_STEPS[i]) questionEl.classList.add(SIZE_STEPS[i]);
+  }
 
   function render() {
     var text = deck[index];
-    questionEl.classList.remove("q-md", "q-sm", "q-xs");
-    if (text.length > 300) questionEl.classList.add("q-xs");
-    else if (text.length > 180) questionEl.classList.add("q-sm");
-    else if (text.length > 90) questionEl.classList.add("q-md");
+    var step = text.length > 300 ? 3 : text.length > 180 ? 2 : text.length > 90 ? 1 : 0;
     questionEl.textContent = text;
+    applyStep(step);
+    // Step the type down until the question fits the card; scroll only as a last resort.
+    while (step < 3 && wrapEl && wrapEl.scrollHeight > wrapEl.clientHeight + 1) {
+      step++;
+      applyStep(step);
+    }
     if (wrapEl) wrapEl.scrollTop = 0;
   }
 
@@ -61,8 +70,17 @@
     }, 150);
   }
 
-  drawBtn.addEventListener("click", next);
+  drawBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    next();
+  });
   card.addEventListener("click", next);
+
+  // Re-fit the current question when the real fonts arrive or the viewport changes.
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { if (index >= 0) render(); });
+  }
+  window.addEventListener("resize", function () { if (index >= 0) render(); });
 
   next();
 })();
