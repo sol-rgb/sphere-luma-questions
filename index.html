@@ -12,30 +12,32 @@
 <body>
   <header class="site-header">
     <a class="logo" href="https://groundtruth.getsphere.com" aria-label="Ground Truth, a Sphere conference">
-      <img src="assets/logo/sphere_logo-night.svg" width="96" height="36" alt="Sphere">
+      <img src="assets/logo/sphere_logo-night.svg" width="122" height="46" alt="Sphere">
     </a>
     <span class="tag">Vol. 1 · Table Talk</span>
   </header>
 
   <main class="wrap">
-    <p class="eyebrow">From the room</p>
+    <div class="page-head">
+      <p class="series"><span class="dash" aria-hidden="true"></span>A Sphere Event Series</p>
+      <h1 class="page-title">Table Talk</h1>
+      <p class="page-sub"><mark>table talk, noun</mark> · Randomized questions to open up the conversation, submitted by tonight's guests with their RSVPs.</p>
+    </div>
 
     <section class="card" id="card" aria-live="polite">
-      <div class="card-bar" aria-hidden="true"></div>
       <div class="card-inner">
         <p class="card-label">
-          <span>Question</span>
-          <span id="counter">– / –</span>
+          <span>GT091700 · Conversation</span>
+          <span>randomized</span>
         </p>
         <div class="question-wrap" id="qwrap">
-          <h1 class="question" id="question">Shuffling the deck…</h1>
+          <p class="question" id="question">Shuffling the deck…</p>
         </div>
+        <p class="card-verify">Ground truth: settled at this table</p>
       </div>
     </section>
 
     <button id="draw" class="btn" type="button">Draw another question</button>
-
-    <p class="hint">Asked by tonight's guests with their RSVPs. Pick one, go around the table.</p>
 
     <p class="notice" id="placeholder-notice" hidden>
       Sample deck for setup. The submitted questions land before doors open.
